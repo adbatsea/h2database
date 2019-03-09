@@ -9,107 +9,106 @@ import java.util.ArrayList;
 import org.h2.table.Table;
 
 /**
- * A database object such as a table, an index, or a user.
+ * 数据库对象，比如表、索引或者用户。
  */
 public interface DbObject {
 
     /**
-     * The object is of the type table or view.
+     * 这个对象是一个表或者视图。
      */
     int TABLE_OR_VIEW = 0;
 
     /**
-     * This object is an index.
+     * 这个对象是一个索引。
      */
     int INDEX = 1;
 
     /**
-     * This object is a user.
+     * 这个对象是一个用户。
      */
     int USER = 2;
 
     /**
-     * This object is a sequence.
+     * 这个对象是一个序列。
      */
     int SEQUENCE = 3;
 
     /**
-     * This object is a trigger.
+     * 这个对象是一个触发器。
      */
     int TRIGGER = 4;
 
     /**
-     * This object is a constraint (check constraint, unique constraint, or
-     * referential constraint).
+     * 这个对象是一个约束（check约束、唯一性约束或者
+     * 引用约束）。
      */
     int CONSTRAINT = 5;
 
     /**
-     * This object is a setting.
+     * 这个对象是一个设置。
      */
     int SETTING = 6;
 
     /**
-     * This object is a role.
+     * 这个对象是一个角色。
      */
     int ROLE = 7;
 
     /**
-     * This object is a right.
+     * 这个对象是一个权限。
      */
     int RIGHT = 8;
 
     /**
-     * This object is an alias for a Java function.
+     * 这个对象是一个函数的别名。
      */
     int FUNCTION_ALIAS = 9;
 
     /**
-     * This object is a schema.
+     * 这个对象是一个模式。
      */
     int SCHEMA = 10;
 
     /**
-     * This object is a constant.
+     * 这个对象是一个常量。
      */
     int CONSTANT = 11;
 
     /**
-     * This object is a domain.
+     * 这个对象是一个域。
      */
     int DOMAIN = 12;
 
     /**
-     * This object is a comment.
+     * 这个对象是一个注释。
      */
     int COMMENT = 13;
 
     /**
-     * This object is a user-defined aggregate function.
+     * 这个对象是一个用户定义的聚集函数。
      */
     int AGGREGATE = 14;
 
     /**
-     * This object is a synonym.
+     * 这个对象是一个同义词。
      */
     int SYNONYM = 15;
 
     /**
-     * Get the SQL name of this object (may be quoted).
+     * 获取这个对象的SQL名称（可能会加上引号）。
      *
-     * @param alwaysQuote quote all identifiers
-     * @return the SQL name
+     * @param alwaysQuote 所有标识符加上引号
+     * @return SQL名称
      */
     String getSQL(boolean alwaysQuote);
 
     /**
-     * Appends the SQL name of this object (may be quoted) to the specified
-     * builder.
+     * 将这个对象的SQL名称（可能会加上引号）添加到指定的构建器后面。
      *
      * @param builder
-     *            string builder
-     * @param alwaysQuote quote all identifiers
-     * @return the specified string builder
+     *            字符串构建器
+     * @param alwaysQuote 所有标识符加上引号
+     * @return 指定的字符串构建器
      */
     StringBuilder getSQL(StringBuilder builder, boolean alwaysQuote);
 
