@@ -141,80 +141,79 @@ public interface DbObject {
     String getName();
 
     /**
-     * Build a SQL statement to re-create the object, or to create a copy of the
-     * object with a different name or referencing a different table
+     * 构建一条SQL语句来重建这个对象，或者用一个不同的名称或引用一个不同的表来创建这个对象
      *
-     * @param table the new table
-     * @param quotedName the quoted name
-     * @return the SQL statement
+     * @param table 新表
+     * @param quotedName 带引号的名称
+     * @return SQL语句
      */
     String getCreateSQLForCopy(Table table, String quotedName);
 
     /**
-     * Construct the original CREATE ... SQL statement for this object.
+     * 构建这个对象最初的CREATE ... SQL语句。
      *
-     * @return the SQL statement
+     * @return SQL语句
      */
     String getCreateSQL();
 
     /**
-     * Construct a DROP ... SQL statement for this object.
+     * 构建这个对象的一个DROP ... SQL语句。
      *
-     * @return the SQL statement
+     * @return SQL语句
      */
     String getDropSQL();
 
     /**
-     * Get the object type.
+     * 获取对象类型。
      *
-     * @return the object type
+     * @return 对象类型
      */
     int getType();
 
     /**
-     * Delete all dependent children objects and resources of this object.
+     * 删除这个对象所有依赖它的子对象及资源。
      *
-     * @param session the session
+     * @param session 会话
      */
     void removeChildrenAndResources(Session session);
 
     /**
-     * Check if renaming is allowed. Does nothing when allowed.
+     * 检查是否允许重命名。如果允许则不进行任何操作。
      */
     void checkRename();
 
     /**
-     * Rename the object.
+     * 重命名对象。
      *
-     * @param newName the new name
+     * @param newName 新的名称
      */
     void rename(String newName);
 
     /**
-     * Check if this object is temporary (for example, a temporary table).
+     * 检查这个对象是否是临时对象（比如，一个临时表）。
      *
-     * @return true if is temporary
+     * @return 如果是临时对象则返回true
      */
     boolean isTemporary();
 
     /**
-     * Tell this object that it is temporary or not.
+     * 设置这个对象是否为临时对象。
      *
-     * @param temporary the new value
+     * @param temporary 新的值
      */
     void setTemporary(boolean temporary);
 
     /**
-     * Change the comment of this object.
+     * 修改这个对象的注释。
      *
-     * @param comment the new comment, or null for no comment
+     * @param comment 新的注释，如果没有注释则为null
      */
     void setComment(String comment);
 
     /**
-     * Get the current comment of this object.
+     * 获取这个对象当前的注释。
      *
-     * @return the comment, or null if not set
+     * @return 注释，如果未设置则为null
      */
     String getComment();
 
