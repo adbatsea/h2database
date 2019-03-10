@@ -113,31 +113,30 @@ public interface DbObject {
     StringBuilder getSQL(StringBuilder builder, boolean alwaysQuote);
 
     /**
-     * Get the list of dependent children (for tables, this includes indexes and
-     * so on).
+     * 获取依赖此对象的子对象的列表（对于表来说，它的子对象包括索引等）。
      *
-     * @return the list of children
+     * @return 子对象的列表
      */
     ArrayList<DbObject> getChildren();
 
     /**
-     * Get the database.
+     * 获取数据库。
      *
-     * @return the database
+     * @return 数据库
      */
     Database getDatabase();
 
     /**
-     * Get the unique object id.
+     * 获取唯一的对象id。
      *
-     * @return the object id
+     * @return 对象id
      */
     int getId();
 
     /**
-     * Get the name.
+     * 获取名称。
      *
-     * @return the name
+     * @return 名称
      */
     String getName();
 
