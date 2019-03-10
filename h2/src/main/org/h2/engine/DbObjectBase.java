@@ -11,22 +11,22 @@ import org.h2.message.DbException;
 import org.h2.message.Trace;
 
 /**
- * The base class for all database objects.
+ * 所有数据库对象的基类。
  */
 public abstract class DbObjectBase implements DbObject {
 
     /**
-     * The database.
+     * 数据库。
      */
     protected Database database;
 
     /**
-     * The trace module.
+     * trace模块。
      */
     protected Trace trace;
 
     /**
-     * The comment (if set).
+     * 注释（如果设置了的话）。
      */
     protected String comment;
 
