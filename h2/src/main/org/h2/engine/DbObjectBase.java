@@ -36,12 +36,12 @@ public abstract class DbObjectBase implements DbObject {
     private boolean temporary;
 
     /**
-     * Initialize some attributes of this object.
+     * 初始化这个对象的一些属性。
      *
-     * @param db the database
-     * @param objectId the object id
-     * @param name the name
-     * @param traceModuleId the trace module id
+     * @param db 数据库
+     * @param objectId 对象id
+     * @param name 名称
+     * @param traceModuleId 跟踪模块id
      */
     protected DbObjectBase(Database db, int objectId, String name,
             int traceModuleId) {
@@ -53,38 +53,37 @@ public abstract class DbObjectBase implements DbObject {
     }
 
     /**
-     * Build a SQL statement to re-create this object.
+     * 构建可以重新生成这个对象的SQL语句。
      *
-     * @return the SQL statement
+     * @return SQL语句
      */
     @Override
     public abstract String getCreateSQL();
 
     /**
-     * Build a SQL statement to drop this object.
+     * 构建可以删除这个对象的SQL语句。
      *
-     * @return the SQL statement
+     * @return SQL语句
      */
     @Override
     public abstract String getDropSQL();
 
     /**
-     * Remove all dependent objects and free all resources (files, blocks in
-     * files) of this object.
+     * 删除所有依赖这个对象的对象，并且释放这个对象的所有资源（文件、文件中的数据块）。
      *
-     * @param session the session
+     * @param session 会话
      */
     @Override
     public abstract void removeChildrenAndResources(Session session);
 
     /**
-     * Check if this object can be renamed. System objects may not be renamed.
+     * 检查这个对象是否可以重命名。系统对象不能重命名。
      */
     @Override
     public abstract void checkRename();
 
     /**
-     * Tell the object that is was modified.
+     * 告诉这个对象它被修改了。
      */
     public void setModified() {
         this.modificationId = database == null ?
@@ -130,8 +129,7 @@ public abstract class DbObjectBase implements DbObject {
     }
 
     /**
-     * Set the main attributes to null to make sure the object is no longer
-     * used.
+     * 将主要的属性设置为null，以确保这个对象不再使用。
      */
     protected void invalidate() {
         if (id == -1) {
