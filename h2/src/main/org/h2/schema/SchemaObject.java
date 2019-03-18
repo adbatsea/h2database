@@ -8,22 +8,22 @@ package org.h2.schema;
 import org.h2.engine.DbObject;
 
 /**
- * Any database object that is stored in a schema.
+ * 任何存储在模式中的数据库对象。
  */
 public interface SchemaObject extends DbObject {
 
     /**
-     * Get the schema in which this object is defined
+     * 获取这个对象的模式
      *
-     * @return the schema
+     * @return 模式
      */
     Schema getSchema();
 
     /**
-     * Check whether this is a hidden object that doesn't appear in the meta
-     * data and in the script, and is not dropped on DROP ALL OBJECTS.
+     * 检查这是否是一个不在元数据中、脚本中存在，并且不会被DROP ALL OBJECTS语句删除
+     * 的隐藏对象。
      *
-     * @return true if it is hidden
+     * @return 如果是隐藏对象则为true
      */
     boolean isHidden();
 
